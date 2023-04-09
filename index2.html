@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="data_table" border="1px">
+        <tr> 
+            <td>id</td> 
+            <td>name</td> 
+            <td>Description</td> 
+        </tr>
+    </table>
+</body>
+<script>
+    let id = prompt("enter id");
+    fetch('http://localhost/se_api/api2.php?id='+id)
+    .then(response => response.json())
+    .then(json => {
+        for(var i=0;i<10;i++){
+            var table = document.getElementById('data_table');
+            var tr = document.createElement('tr'); 
+            tr.innerHTML = "<tr> <td>" + json.content[i].id + "</td> <td>" + json.content[i].name + "</td><td>"+ json.content[i].description + "</td></tr>";
+            table.append(tr);
+        }
+    })
+</script>
+</html>
