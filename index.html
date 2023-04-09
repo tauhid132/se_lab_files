@@ -11,6 +11,7 @@
         <tr> 
             <td>id</td> 
             <td>name</td> 
+            <td>Description</td> 
         </tr>
     </table>
 </body>
@@ -21,7 +22,7 @@
         for(var i=0;i<10;i++){
             var table = document.getElementById('data_table');
             var tr = document.createElement('tr'); 
-            tr.innerHTML = "<tr> <td>" + json.content[i].id + "</td> <td>" + json.content[i].name + "</td> </tr>";
+            tr.innerHTML = "<tr> <td>" + json.content[i].id + "</td> <td>" + json.content[i].name + "</td><td>"+ json.content[i].description + "</td></tr>";
             table.append(tr);
         }
     })
